@@ -7,12 +7,12 @@ In this project, I have worked on logs monitoring for Spring Boot Application us
 
 2 - Download Kibana .zip file from [Kibana Downloads](https://www.elastic.co/downloads/kibana). Extract the .zip file and run "kibana.bat" file in /bin folder. Goto http://localhost:5601/ and you can see the Kibana webpage. Create a new Index "logstash-*". Goto Discover Page and you will see the logs there when you run the spring boot application.
 
-3 - Download Logstash .zip file from [Logstash Downloads](https://www.elastic.co/downloads/logstash). Extract the .zip file. Create "logstash.conf" file inside the folder and add the following content into it and save it: 
+3 - Download Logstash .zip file from [Logstash Downloads](https://www.elastic.co/downloads/logstash). Extract the .zip file. Create "logstash.conf" file inside the folder and add the following content into it, replace the PROJECT_PATH and save it: 
 
 input {
   file {
     type => "java"
-    path => "D:/Projects/SpringBoot/logs-monitoring/spring-boot-elk.log"
+    path => "PROJECT_PATH/spring-boot-elk.log"
     codec => multiline {
       pattern => "^%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}.*"
       negate => "true"
